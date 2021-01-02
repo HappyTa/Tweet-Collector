@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1>Tweet Collector</h1>
+    <!--
+    <p style="font-size: 20px;">Please enter the keyword(s) you are looking for bellow, seperated by a space.</p>
+    <input type="text" id="keywords" name = "keywords"><br><br>
+    <input type="submit" value="Submit"> -->
+
+    <div class="content-section">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Enter the keyword(s) you want to look for</legend>
+                <div class="form-group">
+                    {{ form.keyword.label(class="form-control-plaintext") }}
+
+                    {% if form.keyword.errors %}
+                        {{ form.keyword(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.keyword.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.keyword(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+        </form>
+    </div>
+
+<!--
+    {% for tweet in tweets %}
+        <h1>{{ tweet.keyword}}</h1>
+        <p>Tweeted on {{ tweet.date_tweeted }}</p>
+        <p>{{ tweet.content }}</p>
+    {% endfor %}
+-->
+{% endblock content %}
