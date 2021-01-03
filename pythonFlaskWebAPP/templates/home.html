@@ -10,10 +10,10 @@
         <form method="POST" action="">
             {{ form.hidden_tag() }}
             <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Enter the keyword(s) you want to look for</legend>
+                <legend class="border-bottom mb-4">Enter the keyword(s) you want to look for, seperated by a comma(,) no space</legend>
                 <div class="form-group">
                     {{ form.keyword.label(class="form-control-plaintext") }}
-
+                    <!-- Error checking, making sure that the user is actually inputing a keyword -->
                     {% if form.keyword.errors %}
                         {{ form.keyword(class="form-control form-control-lg is-invalid") }}
                         <div class="invalid-feedback">
