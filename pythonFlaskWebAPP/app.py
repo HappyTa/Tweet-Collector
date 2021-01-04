@@ -59,7 +59,6 @@ def home():
 # About page
 @app.route("/tweetprint", methods=['GET','POST'])
 def tweetprint():
-    
     return render_template('tweetprint.html', title = "tweetprint page")
 
 
